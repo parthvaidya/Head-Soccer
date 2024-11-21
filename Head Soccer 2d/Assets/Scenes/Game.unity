@@ -297,7 +297,7 @@ MonoBehaviour:
   playerAScoreText: {fileID: 1792530162}
   playerBScoreText: {fileID: 2032081447}
   winText: {fileID: 1548649444}
-  winningScore: 15
+  winningScore: 2
 --- !u!4 &456400233
 Transform:
   m_ObjectHideFlags: 0
@@ -428,7 +428,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 78.883965
+  orthographic size: 69.892746
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -453,7 +453,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0, y: -6, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -537,8 +537,8 @@ Transform:
   m_GameObject: {fileID: 604895373}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.2226, y: -2.1274, z: 0}
-  m_LocalScale: {x: 47.82566, y: 38.974358, z: 1}
+  m_LocalPosition: {x: 0.0097, y: -2.1274, z: 0}
+  m_LocalScale: {x: 47.267097, y: 38.974358, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -1719,7 +1719,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -295, y: 197}
+  m_AnchoredPosition: {x: -295, y: 164}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1792530162
@@ -1930,7 +1930,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 290, y: 197}
+  m_AnchoredPosition: {x: 290, y: 166}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2032081447
