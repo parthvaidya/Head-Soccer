@@ -30,7 +30,7 @@ public class Ball : MonoBehaviour
                 // Apply minimum upward force if the ball slows down
                 rb.velocity = new Vector2(rb.velocity.x, minBounceForce);
             }
-        } else if (collision.gameObject.CompareTag("Player"))
+        } else if (collision.gameObject.CompareTag("Penguin") || collision.gameObject.CompareTag("Bro"))
         {
             // Calculate force direction based on the collision
             Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
@@ -39,6 +39,10 @@ public class Ball : MonoBehaviour
             // Apply force to simulate the "head ball" effect
             rb.AddForce(hitDirection * playerHitForce, ForceMode2D.Impulse);
         }
+
+
+
+
     }
 
     private void FixedUpdate()

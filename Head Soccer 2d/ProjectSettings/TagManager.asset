@@ -8,6 +8,8 @@ TagManager:
   - Ground
   - Penguin
   - Bro
+  - LeftArea
+  - RightArea
   layers:
   - Default
   - TransparentFX
