@@ -19,14 +19,14 @@ public class LobbyButtonController : MonoBehaviour
     public void StartGame()
     {
 
-        //SoundManager.Instance.Play(Sounds.ButtonClick);
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(1);
     }
 
     public void QuitGame()
     {
 
-        //SoundManager.Instance.Play(Sounds.ButtonClick);
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(3);
     }
 }

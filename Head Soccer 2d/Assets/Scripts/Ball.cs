@@ -35,7 +35,7 @@ public class Ball : MonoBehaviour
             // Calculate force direction based on the collision
             Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
             float playerHitForce = 15f; // Adjust the force as needed
-
+            SoundManager.Instance.Play(Sounds.Ball);
             // Apply force to simulate the "head ball" effect
             rb.AddForce(hitDirection * playerHitForce, ForceMode2D.Impulse);
         }

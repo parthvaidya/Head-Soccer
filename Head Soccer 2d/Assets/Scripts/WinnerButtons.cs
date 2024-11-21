@@ -16,8 +16,8 @@ public class WinnerButtons : MonoBehaviour
 
     public void StartGame()
     {
-     
-        //SoundManager.Instance.Play(Sounds.ButtonClick);
+
+        SoundManager.Instance.Play(Sounds.ButtonClick);
         SceneManager.LoadScene(0);
     }
 

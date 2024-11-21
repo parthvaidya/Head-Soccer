@@ -39,6 +39,7 @@ public class ScoreController : MonoBehaviour
             playerAScore += increment;
             CheckWinCondition("Penguin");
             Debug.Log("Bro score");
+            SoundManager.Instance.Play(Sounds.Goal);
             StartCoroutine(RestartGame());
         }
         else if (playerTag == "RightArea")
@@ -46,6 +47,7 @@ public class ScoreController : MonoBehaviour
             playerBScore += increment;
             CheckWinCondition("Bro");
             Debug.Log("Penguin score");
+            SoundManager.Instance.Play(Sounds.Score);
             StartCoroutine(RestartGame());
         }
 
