@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour
     //[SerializeField] private float crazyForce = 150f; // Adjust this to control bounce intensity
     [SerializeField] private float minBounceForce = 10f; // Minimum force to maintain bounce
     [SerializeField] private Vector2 initialForce = new Vector2(2f, 5f);
+    [SerializeField] private GameObject kickParticlePrefab; // Assign your particle prefab in the Inspector
+    private GameObject activeParticleEffect;
     private Rigidbody2D rb;
 
     private void Awake()
@@ -36,13 +38,34 @@ public class Ball : MonoBehaviour
             Vector2 hitDirection = (transform.position - collision.transform.position).normalized;
             float playerHitForce = 15f; // Adjust the force as needed
             SoundManager.Instance.Play(Sounds.Ball);
+            // Instantiate and attach particle effect
+            if (activeParticleEffect == null) // Prevent multiple instances
+            {
+                activeParticleEffect = Instantiate(kickParticlePrefab, transform.position, Quaternion.identity);
+                activeParticleEffect.transform.SetParent(transform); // Attach to the ball
+            }
+
+            // Optional: Stop the particle after some time
+            
             // Apply force to simulate the "head ball" effect
             rb.AddForce(hitDirection * playerHitForce, ForceMode2D.Impulse);
+            StartCoroutine(StopParticleAfterTime(1f));
         }
 
 
 
 
+    }
+
+    private IEnumerator StopParticleAfterTime(float duration)
+    {
+        yield return new WaitForSeconds(duration);
+
+        if (activeParticleEffect != null)
+        {
+            Destroy(activeParticleEffect);
+            activeParticleEffect = null;
+        }
     }
 
     private void FixedUpdate()

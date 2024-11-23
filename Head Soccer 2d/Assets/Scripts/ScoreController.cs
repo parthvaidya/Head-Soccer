@@ -36,37 +36,11 @@ public class ScoreController : MonoBehaviour
         winText.text = ""; // Clear win message
     }
 
-    // Increase score for a specific player
-    //public void IncreaseScore(string playerTag, int increment)
-    //{
-    //    if (playerTag == "LeftArea")
-    //    {
-    //        playerAScore += increment;
-    //        GameManager.PlayerAScore = playerAScore;
-    //        //CheckWinCondition(playerAScore);
-    //        Debug.Log("Bro score");
-    //        SoundManager.Instance.Play(Sounds.Goal);
-
-
-    //        StartCoroutine(RestartGame());
-    //    }
-    //    else if (playerTag == "RightArea")
-    //    {
-    //        playerBScore += increment;
-    //        GameManager.PlayerBScore = playerBScore;
-    //        //CheckWinCondition(playerBScore);
-    //        Debug.Log("Penguin score");
-    //        SoundManager.Instance.Play(Sounds.Score);
-
-    //        StartCoroutine(RestartGame());
-    //    }
-
-    //    RefreshUI();
-    //}
+    
 
     public void IncreaseScore(string playerTag, int increment)
     {
-        if (playerTag == "LeftArea")
+        if (playerTag == "RightArea")
         {
             playerAScore += increment;
             GameManager.PlayerAScore = playerAScore;
@@ -83,7 +57,7 @@ public class ScoreController : MonoBehaviour
 
             StartCoroutine(RestartGame());
         }
-        else if (playerTag == "RightArea")
+        else if (playerTag == "LeftArea")
         {
             playerBScore += increment;
             GameManager.PlayerBScore = playerBScore;
@@ -114,42 +88,22 @@ public class ScoreController : MonoBehaviour
         RefreshUI();
     }
 
-    //private void CheckWinCondition(int PlayerScore)
-    //{
-    //    if (PlayerScore >= winningScore)
-    //    {
-    //        //winText.text = playerName + " Wins!";
-    //        //StartCoroutine(RestartGame());
-    //        Debug.Log("Won now loading ");
-    //        SceneManager.LoadScene(3);
-
-    //    }
-    //}
+   
 
     private void RefreshUI()
     {
         playerAScoreText.text = "Penguin:" + playerAScore;
         playerBScoreText.text = "Bro:" + playerBScore;
 
-       
 
-        //Debug.Log($"Checking Win Condition: Player A Score = {playerAScore}, Player B Score = {playerBScore}, Winning Score = {winningScore}");
-
-
-        Debug.Log($"Refreshing UI: Penguin = {playerAScore}, Bro = {playerBScore}");
+        
     }
 
     // Reset scores and restart game after a delay
     private IEnumerator RestartGame()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
-        // Optionally reset scores
-        //playerAScore = 0;
-        //playerBScore = 0;
-        //winText.text = "";
-        //RefreshUI();
-        // Save scores before scene reload
         GameManager.PlayerAScore = playerAScore;
         GameManager.PlayerBScore = playerBScore;
 

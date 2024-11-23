@@ -10,7 +10,7 @@ public class GoalScored : MonoBehaviour
     {
         if (other.CompareTag("Ball"))
         {
-            //Debug.Log(" Goal Scored!");
+          
             scoreController.IncreaseScore(gameObject.tag, 1);
            
         }

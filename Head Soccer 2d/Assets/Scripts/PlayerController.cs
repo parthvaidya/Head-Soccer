@@ -12,7 +12,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] protected Transform groundCheck;
     [SerializeField] protected LayerMask groundLayer;
     [SerializeField] protected Transform goalTarget; // Assign the respective goal Transform for each player
-
+    [SerializeField] private Transform headTransform;
+    [SerializeField] private Transform FaceTransform;
     protected Rigidbody2D rb2d;
     protected bool isGrounded;
     protected GameObject ball;
@@ -96,6 +97,41 @@ public class PlayerController : MonoBehaviour
                 // Determine direction towards the goal area
                 direction = (goalTarget.position - footTransform.position).normalized * direction;
                 ballRb.AddForce(direction * force, ForceMode2D.Impulse);
+
+
+            }
+
+
+        }
+    }
+
+    private void HeadBall()
+    {
+        if (ball != null)
+        {
+            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
+            if (ballRb != null)
+            {
+                // Calculate direction and apply force using the head
+                Vector2 direction = (ball.transform.position - headTransform.position).normalized;
+                ballRb.AddForce(direction * kickForce, ForceMode2D.Impulse);
+
+
+            }
+        }
+    }
+
+
+    private void FaceBall()
+    {
+        if (ball != null)
+        {
+            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
+            if (ballRb != null)
+            {
+                // Calculate direction and apply force using the head
+                Vector2 direction = (ball.transform.position - FaceTransform.position).normalized;
+                ballRb.AddForce(direction * kickForce, ForceMode2D.Impulse);
             }
         }
     }
