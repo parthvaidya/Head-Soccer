@@ -105,36 +105,39 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void HeadBall()
+    
+
+    private void ApplyForceFromTransform(Transform sourceTransform)
     {
         if (ball != null)
         {
             Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
             if (ballRb != null)
             {
-                // Calculate direction and apply force using the head
-                Vector2 direction = (ball.transform.position - headTransform.position).normalized;
+                // Calculate direction and apply force using the provided transform
+                Vector2 direction = (ball.transform.position - sourceTransform.position).normalized;
                 ballRb.AddForce(direction * kickForce, ForceMode2D.Impulse);
-
-
             }
         }
     }
 
+    private void HeadBall()
+    {
+        if (headTransform != null)
+        {
+            ApplyForceFromTransform(headTransform);
+        }
+    }
 
     private void FaceBall()
     {
-        if (ball != null)
+        if (FaceTransform != null)
         {
-            Rigidbody2D ballRb = ball.GetComponent<Rigidbody2D>();
-            if (ballRb != null)
-            {
-                // Calculate direction and apply force using the head
-                Vector2 direction = (ball.transform.position - FaceTransform.position).normalized;
-                ballRb.AddForce(direction * kickForce, ForceMode2D.Impulse);
-            }
+            ApplyForceFromTransform(FaceTransform);
         }
     }
+
+
 
     private void OnCollisionEnter2D(Collision2D collision)
     {

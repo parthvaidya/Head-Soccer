@@ -39,8 +39,8 @@ public class BroController : PlayerController
 
     protected override bool GetKickInputStraight() => Input.GetKeyDown(KeyCode.Space);
 
-    protected override bool GetKickInputChip() => Input.GetKeyDown(KeyCode.Keypad0);
+    protected override bool GetKickInputChip() => Input.GetKeyDown(KeyCode.B);
 
-    protected override bool GetKickInputSmash() => Input.GetKeyDown(KeyCode.Keypad1);
+    protected override bool GetKickInputSmash() => Input.GetKeyDown(KeyCode.M);
 
 }

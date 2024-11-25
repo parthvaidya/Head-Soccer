@@ -102,7 +102,7 @@ public class ScoreController : MonoBehaviour
     // Reset scores and restart game after a delay
     private IEnumerator RestartGame()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
 
         GameManager.PlayerAScore = playerAScore;
         GameManager.PlayerBScore = playerBScore;
